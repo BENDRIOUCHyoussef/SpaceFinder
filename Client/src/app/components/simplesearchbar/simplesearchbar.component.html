@@ -1,0 +1,137 @@
+<section class="search-section bg-white py-8 px-6 rounded-xl shadow-md">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-blue-500 mb-6 text-center">Find Your Perfect Room in London</h2>
+      
+      <!-- Location Search -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-1">London Area</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <input 
+            [(ngModel)]="location"
+            type="text" 
+            class="block w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter London adress or Poscode (e.g., Shoreditch, Camden)"
+          >
+        </div>
+      </div>
+  
+      <!-- Filters Row -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <!-- Move-in Date -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Move-in Date</label>
+          <input 
+            [(ngModel)]="moveInDate"
+            type="date" 
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+  
+        <!-- Budget Range -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Budget (£)</label>
+          <div class="flex items-center space-x-2">
+            <input 
+              [(ngModel)]="minPrice"
+              type="number" 
+              min="0"
+              placeholder="Min"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+            <span class="text-gray-500">to</span>
+            <input 
+              [(ngModel)]="maxPrice"
+              type="number" 
+              min="0"
+              placeholder="Max"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+          </div>
+        </div>
+  
+        <!-- Room Type -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Room Type</label>
+          <select [(ngModel)]="roomType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Any Type</option>
+            <option *ngFor="let type of roomTypes" [value]="type.value">{{ type.label }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <!-- Advanced Options Toggle -->
+      <div class="text-center mb-4">
+        <button 
+          (click)="toggleAdvancedFilters()"
+          class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center justify-center mx-auto"
+        >
+          {{ showAdvancedFilters ? 'Hide' : 'Show' }} advanced filters
+          <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Advanced Filters -->
+      <div *ngIf="showAdvancedFilters" class="mt-4 p-4 bg-gray-50 rounded-lg">
+        <h3 class="font-medium text-gray-800 mb-3">Additional Preferences</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Property Type -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
+            <select [(ngModel)]="propertyType" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              <option value="">Any Property</option>
+              <option *ngFor="let type of propertyTypes" [value]="type.value">{{ type.label }}</option>
+            </select>
+          </div>
+  
+          <!-- Number of Roommates -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Max Roommates</label>
+            <select [(ngModel)]="maxRoommates" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              <option value="">Any Number</option>
+              <option *ngFor="let num of roommateOptions" [value]="num">{{ num }}</option>
+            </select>
+          </div>
+  
+          <!-- Furnishing -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Furnishing</label>
+            <select [(ngModel)]="furnishing" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              <option value="">Any</option>
+              <option value="furnished">Furnished</option>
+              <option value="unfurnished">Unfurnished</option>
+              <option value="part-furnished">Part Furnished</option>
+            </select>
+          </div>
+  
+          <!-- Amenities Checkboxes -->
+          <div class="md:col-span-3">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Must Have Amenities</label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <label *ngFor="let amenity of amenities" class="flex items-center">
+                <input type="checkbox" [(ngModel)]="amenity.selected" class="rounded text-blue-600">
+                <span class="ml-2 text-gray-700">{{ amenity.name }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Search Button -->
+      <div class="text-center mt-6">
+        <button 
+          (click)="onSearch()"
+          class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg w-full md:w-auto"
+        >
+          Search Rooms
+        </button>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,287 @@
+<div class="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white shadow rounded-lg overflow-hidden">
+    <!-- Form Header -->
+    <div class="px-6 py-5 border-b border-gray-200 bg-gray-50">
+      <h1 class="text-2xl font-bold text-gray-800">Create Your Space</h1>
+      <p class="mt-1 text-sm text-gray-600">
+        Fill in the details about your property
+      </p>
+    </div>
+
+    <!-- Form Content -->
+    <form
+      #form="ngForm"
+      (ngSubmit)="onFormSubmit()"
+      class="divide-y divide-gray-200"
+    >
+      <!-- Basic Information Section -->
+      <div class="px-6 py-5 space-y-6">
+        <h2 class="text-lg font-semibold text-gray-800">Basic Information</h2>
+
+        <!-- Title -->
+        <div>
+          <label
+            for="title"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Title*</label
+          >
+          <input
+            type="text"
+            id="title"
+            [(ngModel)]="model.title"
+            name="title"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+            placeholder="e.g. Bright Double Room in Shoreditch"
+          />
+        </div>
+
+        <!-- Description -->
+        <div>
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Description*</label
+          >
+          <textarea
+            id="description"
+            [(ngModel)]="model.description"
+            name="description"
+            rows="4"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+            placeholder="Tell potential tenants about your space..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Property Details Section -->
+      <div class="px-6 py-5 space-y-6">
+        <h2 class="text-lg font-semibold text-gray-800">Property Details</h2>
+
+        <!-- Number of Rooms -->
+        <div>
+          <label
+            for="numberOfRooms"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Number of Rooms*</label
+          >
+          <input
+            type="number"
+            id="numberOfRooms"
+            [(ngModel)]="model.numberOfRooms"
+            name="numberOfRooms"
+            required
+            min="1"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+          />
+        </div>
+
+        <!-- Number of Bathrooms -->
+        <div>
+          <label
+            for="numberOfBathrooms"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Bathrooms*</label
+          >
+          <input
+            type="number"
+            id="numberOfBathrooms"
+            [(ngModel)]="model.numberOfBathrooms"
+            name="numberOfBathrooms"
+            required
+            min="1"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+          />
+        </div>
+
+        <!-- Furnished -->
+        <div class="flex items-center">
+          <input
+            id="furnished"
+            [(ngModel)]="model.furnished"
+            name="furnished"
+            type="checkbox"
+            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+          />
+          <label for="furnished" class="ml-2 block text-sm text-gray-700"
+            >Furnished</label
+          >
+        </div>
+      </div>
+
+      <!-- In your form template -->
+      <div class="form-group">
+        <label for="spaceType">Space Type*</label>
+        <select
+          id="spaceType"
+          name="spaceType"
+          [(ngModel)]="model.spaceType"
+          required
+        >
+          <option *ngFor="let type of spaceTypeOptions" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Location Section -->
+      <div class="px-6 py-5 space-y-6">
+        <h2 class="text-lg font-semibold text-gray-800">Location</h2>
+
+        <div class="grid grid-cols-1 gap-6">
+          <!-- Address -->
+          <div>
+            <label
+              for="address"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Full Address*</label
+            >
+            <input
+              type="text"
+              id="address"
+              [(ngModel)]="model.address"
+              name="address"
+              required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+            />
+          </div>
+
+          <!-- City -->
+          <div>
+            <label
+              for="city"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >City*</label
+            >
+            <input
+              type="text"
+              id="city"
+              [(ngModel)]="model.city"
+              name="city"
+              required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+            />
+          </div>
+
+          <!-- Postcode -->
+          <div>
+            <label
+              for="postCode"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Postcode*</label
+            >
+            <input
+              type="text"
+              id="postCode"
+              [(ngModel)]="model.postCode"
+              name="postCode"
+              required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Section -->
+      <div class="px-6 py-5 space-y-6">
+        <h2 class="text-lg font-semibold text-gray-800">Pricing</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Monthly Price -->
+          <div>
+            <label
+              for="price"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Monthly Price (£)*</label
+            >
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span class="text-gray-500">£</span>
+              </div>
+              <input
+                type="number"
+                id="price"
+                [(ngModel)]="model.price"
+                name="price"
+                required
+                min="0"
+                step="50"
+                class="block w-full pl-7 pr-12 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+              />
+            </div>
+          </div>
+
+          <!-- Deposit -->
+          <div>
+            <label
+              for="deposit"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Deposit (£)*</label
+            >
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span class="text-gray-500">£</span>
+              </div>
+              <input
+                type="number"
+                id="deposit"
+                [(ngModel)]="model.deposit"
+                name="deposit"
+                required
+                min="0"
+                step="50"
+                class="block w-full pl-7 pr-12 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 border"
+              />
+            </div>
+          </div>
+
+          <!-- Bills Included -->
+          <div class="flex items-center">
+            <input
+              id="billsIncluded"
+              [(ngModel)]="model.billsIncluded"
+              name="billsIncluded"
+              type="checkbox"
+              class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <label for="billsIncluded" class="ml-2 block text-sm text-gray-700"
+              >Bills included in price</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label
+          for="availableFrom"
+          class="block text-sm font-medium text-gray-700"
+          >Available From*</label
+        >
+        <input
+          type="date"
+          id="availableFrom"
+          [(ngModel)]="model.availableFrom"
+          name="availableFrom"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+        />
+      </div>
+
+      <!-- Form Footer -->
+      <div class="px-6 py-4 bg-gray-50 text-right">
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          class="inline-flex justify-center py-2 px-4 border cursor-pointer border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Create Listing
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

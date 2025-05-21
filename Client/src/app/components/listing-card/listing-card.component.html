@@ -1,0 +1,64 @@
+<div class="listing-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+    <!-- Image with Favorite Button -->
+    <div class="relative">
+      <img 
+        [src]="listing.imageUrl" 
+        [alt]="listing.title"
+        class="w-full h-48 object-cover"
+      >
+      <button 
+        (click)="toggleFavorite()"
+        class="absolute top-3 right-3 p-2 bg-white bg-opacity-80 rounded-full hover:bg-opacity-100 transition-all"
+      >
+        <svg 
+          [class.text-red-500]="isFavorite" 
+          [class.fill-current]="isFavorite"
+          class="w-6 h-6 text-gray-400" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Listing Details -->
+    <div class="p-4">
+      <div class="flex justify-between items-start mb-2">
+        <h3 class="text-lg font-semibold text-gray-900">{{ listing.title }}</h3>
+        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+          {{ listing.type }}
+        </span>
+      </div>
+  
+      <p class="text-gray-600 text-sm mb-3">{{ listing.address }}</p>
+  
+      <!-- Amenities Icons -->
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span *ngFor="let amenity of listing.amenities.slice(0, 4)" class="flex items-center text-xs text-gray-500">
+          <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path *ngIf="amenity === 'WiFi'" d="M10 2a8 8 0 018 8c0 1.848-.627 3.55-1.68 4.905l-.17.22L10 18l-6.15-6.875-.17-.22A7.96 7.96 0 012 10a8 8 0 018-8zm0 2a6 6 0 00-6 6c0 .712.148 1.387.413 2H10V4zm0 4v4h5.587A5.977 5.977 0 0016 10a6 6 0 00-6-6z"/>
+            <path *ngIf="amenity === 'Parking'" d="M5 4a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2H5zm0 1h10a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1zm1 3v2h8V8H6z"/>
+            <!-- Add more SVG paths for other amenities -->
+          </svg>
+          {{ amenity }}
+        </span>
+        <span *ngIf="listing.amenities.length > 4" class="text-xs text-gray-500">+{{ listing.amenities.length - 4 }} more</span>
+      </div>
+  
+      <!-- Price and Action -->
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="text-lg font-bold text-gray-900">£{{ listing.price }}/mo</p>
+          <p class="text-xs text-gray-500">{{ listing.deposit }} deposit</p>
+        </div>
+        <button 
+          class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+          (click)="viewListing.emit(listing.id)"
+        >
+          View
+        </button>
+      </div>
+    </div>
+  </div>

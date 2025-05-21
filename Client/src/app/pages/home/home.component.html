@@ -1,0 +1,129 @@
+<div class="bg-white">
+  <!-- Hero Section with Background Image -->
+  <section class="relative py-20 md:py-28 lg:py-32 bg-gray-800 overflow-hidden">
+    <!-- Background Image - Updated with better visibility -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="People learning on mobile devices"
+        decoding="async"
+        class="w-full h-full object-cover opacity-60"
+      />
+
+      <!-- Dark overlay -->
+    </div>
+
+    <!-- Content Container -->
+    <div class="container mx-auto px-6 max-w-6xl relative z-10">
+      <div class="text-center">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+        >
+          Welcome to SpaceFinder
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10">
+          Discover your ideal living space with SpaceFinder, London's premier
+          room rental plateform. Whether you are moving for a new job, studying,
+          or simply looking for a change, we have the perfect room to suit your
+          needs. Start your journey with us.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          <button
+            class="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg"
+          >
+            Find a space
+          </button>
+          <button
+            class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
+          >
+            post a space
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-header></app-header>
+
+  <!-- Other sections... -->
+  <!-- Search Section -->
+  <app-simplesearchbar (search)="onSearch($event)"></app-simplesearchbar>
+
+  <!-- Listing Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+        Featured Rooms in London
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Listing 1 -->
+        <app-listing-card
+          [listing]="{
+            id: '1',
+            title: 'Bright Double Room in Shoreditch',
+            address: 'Shoreditch, London',
+            price: 950,
+            deposit: '1 month',
+            type: 'Double Room',
+            imageUrl:
+              'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+            amenities: [
+              'WiFi',
+              'Washing Machine',
+              'Central Heating',
+              'Bills Included',
+              'Double Bed'
+            ]
+          }"
+          (viewListing)="onViewListing($event)"
+        ></app-listing-card>
+
+        <!-- Listing 2 -->
+        <app-listing-card
+          [listing]="{
+            id: '2',
+            title: 'Modern Studio in Camden',
+            address: 'Camden, London',
+            price: 1200,
+            deposit: '6 weeks',
+            type: 'Studio',
+            imageUrl:
+              'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+            amenities: ['WiFi', 'Kitchen', 'Private Bathroom', 'TV', 'Parking']
+          }"
+          (viewListing)="onViewListing($event)"
+        ></app-listing-card>
+
+        <!-- Listing 3 -->
+        <app-listing-card
+          [listing]="{
+            id: '3',
+            title: 'Cozy Single Room in Kensington',
+            address: 'Kensington, London',
+            price: 750,
+            deposit: '4 weeks',
+            type: 'Single Room',
+            imageUrl:
+              'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+            amenities: ['WiFi', 'Garden', 'Bills Included', 'Central Heating']
+          }"
+          (viewListing)="onViewListing($event)"
+        ></app-listing-card>
+      </div>
+
+      <div class="text-center mt-8">
+        <button
+          class="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
+        >
+          View All Listings
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <!-- ... existing value proposition section ... -->
+  </section>
+</div>

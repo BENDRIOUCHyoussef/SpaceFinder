@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFinderAPI", "SpaceFinderAPI\SpaceFinderAPI.csproj", "{0E889E73-FAA8-4DAC-AD4B-906B8BF3131C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E889E73-FAA8-4DAC-AD4B-906B8BF3131C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E889E73-FAA8-4DAC-AD4B-906B8BF3131C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E889E73-FAA8-4DAC-AD4B-906B8BF3131C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E889E73-FAA8-4DAC-AD4B-906B8BF3131C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD17939A-D886-42C7-8C4B-9FF7CE34B7F3}
+	EndGlobalSection
+EndGlobal
