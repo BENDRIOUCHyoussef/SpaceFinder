@@ -16,6 +16,12 @@ export const routes: Routes = [
         },
       },
 
+      {
+        path: 'search',
+        loadComponent: () => {
+          return import('./pages/search-results/search-results.component').then(m => m.SearchResultsComponent)
+        },
+      },
       
       {
         path: 'login',

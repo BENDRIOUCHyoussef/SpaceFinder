@@ -1,0 +1,196 @@
+<div class="bg-white min-h-screen">
+  <!-- Search Header -->
+  <div class="border-b border-gray-200 bg-white sticky top-16 z-10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <h1 class="text-2xl font-semibold text-gray-900">London rooms</h1>
+          <span class="text-sm text-gray-600">300+ rooms available</span>
+        </div>
+        
+        <!-- View Toggle and Sort -->
+        <div class="flex items-center space-x-4">
+          <!-- View Toggle -->
+          <div class="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-white shadow-sm text-gray-900">
+              Grid
+            </button>
+            <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-600 hover:text-gray-900">
+              List
+            </button>
+          </div>
+          
+          <!-- Sort -->
+          <button class="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:shadow-sm transition-shadow">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/>
+            </svg>
+            <span class="text-sm font-medium">Price: Low to High</span>
+          </button>
+
+          <!-- Map Toggle -->
+          <button class="hidden lg:flex items-center space-x-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-sm font-medium">Show map</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-6">
+    <div class="lg:grid lg:grid-cols-4 lg:gap-8">
+      
+      <!-- Filters Sidebar -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-32">
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 space-y-6">
+            
+            <!-- Price Range -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Price range</h3>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <div class="flex-1">
+                    <label class="block text-sm text-gray-600 mb-1">Min price</label>
+                    <input type="number" placeholder="£500" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  </div>
+                  <span class="text-gray-400 mt-6">-</span>
+                  <div class="flex-1">
+                    <label class="block text-sm text-gray-600 mb-1">Max price</label>
+                    <input type="number" placeholder="£2000" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  </div>
+                </div>
+                <!-- Price Range Slider Placeholder -->
+                <div class="relative">
+                  <div class="h-2 bg-gray-200 rounded-full">
+                    <div class="absolute h-2 bg-red-500 rounded-full left-1/4 right-1/3"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-gray-500 mt-2">
+                    <span>£500</span>
+                    <span>£2000+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Room Type -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Room type</h3>
+              <div class="space-y-3">
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Single room</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500" checked>
+                  <span class="ml-3 text-sm text-gray-700">Double room</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Studio</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Shared room</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Amenities -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Amenities</h3>
+              <div class="space-y-3">
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500" checked>
+                  <span class="ml-3 text-sm text-gray-700">WiFi</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Washing machine</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Kitchen access</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Parking</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Garden</span>
+                </label>
+                <button class="text-sm text-red-500 hover:text-red-600 font-medium">
+                  Show more amenities
+                </button>
+              </div>
+            </div>
+
+            <!-- Move-in Date -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Move-in date</h3>
+              <div class="space-y-3">
+                <label class="flex items-center">
+                  <input type="radio" name="moveIn" class="border-gray-300 text-red-500 focus:ring-red-500" checked>
+                  <span class="ml-3 text-sm text-gray-700">Available now</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="moveIn" class="border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Within a week</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="moveIn" class="border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Within a month</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="moveIn" class="border-gray-300 text-red-500 focus:ring-red-500">
+                  <span class="ml-3 text-sm text-gray-700">Specific date</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Clear Filters -->
+            <div class="pt-4 border-t border-gray-200">
+              <button class="w-full px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                Clear all filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Results Grid -->
+      <main class="lg:col-span-3">
+        <!-- Mobile Filters Button -->
+        <div class="flex lg:hidden mb-4">
+          <button class="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:shadow-sm transition-shadow">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+            </svg>
+            <span class="text-sm font-medium">Filters</span>
+          </button>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- Sample Results - These would normally come from a service -->
+          <app-listing-card
+            *ngFor="let listing of sampleListings"
+            [listing]="listing"
+            (viewListing)="onViewListing($event)"
+          ></app-listing-card>
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center mt-12">
+          <button class="px-8 py-3 bg-white border border-gray-300 rounded-xl text-gray-700 font-medium hover:bg-gray-50 hover:shadow-sm transition-all">
+            Show more rooms
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

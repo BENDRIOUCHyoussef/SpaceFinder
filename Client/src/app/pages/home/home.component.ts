@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SimplesearchbarComponent } from '../../components/simplesearchbar/simplesearchbar.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ListingCardComponent } from '../../components/listing-card/listing-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [SimplesearchbarComponent, HeaderComponent, ListingCardComponent],
+  imports: [RouterModule, SimplesearchbarComponent, HeaderComponent, ListingCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

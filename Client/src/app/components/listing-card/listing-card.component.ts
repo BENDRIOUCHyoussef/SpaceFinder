@@ -35,6 +35,10 @@ export class ListingCardComponent {
 
   isFavorite = false;
 
+  onCardClick() {
+    this.viewListing.emit(this.listing.id);
+  }
+
   toggleFavorite() {
     this.isFavorite = !this.isFavorite;
     this.favoriteToggled.emit({
