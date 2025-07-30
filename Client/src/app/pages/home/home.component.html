@@ -1,63 +1,147 @@
 <div class="bg-white">
   <!-- Hero Section with Background Image -->
-  <section class="relative py-20 md:py-28 lg:py-32 bg-gray-800 overflow-hidden">
-    <!-- Background Image - Updated with better visibility -->
+  <section class="relative py-20 md:py-32 lg:py-40 bg-gradient-to-br from-red-50 to-pink-50 overflow-hidden">
+    <!-- Background Pattern -->
     <div class="absolute inset-0 z-0">
-      <img
-        src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-        alt="People learning on mobile devices"
-        decoding="async"
-        class="w-full h-full object-cover opacity-60"
-      />
-
-      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-red-500/10 to-pink-500/10"></div>
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23f87171" fill-opacity="0.05"><circle cx="7" cy="7" r="2"/><circle cx="37" cy="7" r="2"/><circle cx="7" cy="37" r="2"/><circle cx="37" cy="37" r="2"/></g></svg>'); opacity: 0.3;"></div>
     </div>
 
     <!-- Content Container -->
     <div class="container mx-auto px-6 max-w-6xl relative z-10">
       <div class="text-center">
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-        >
-          Welcome to SpaceFinder
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          Find your perfect
+          <span class="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent"> space</span>
         </h1>
-        <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10">
-          Discover your ideal living space with SpaceFinder, London's premier
-          room rental plateform. Whether you are moving for a new job, studying,
-          or simply looking for a change, we have the perfect room to suit your
-          needs. Start your journey with us.
+        <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+          Discover amazing rooms, studios, and shared spaces in London. From cozy bedrooms to stylish studios, find your ideal home away from home.
         </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-          <button
-            class="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-lg"
-          >
-            Find a space
+        <!-- Enhanced Search Section -->
+        <div class="max-w-4xl mx-auto mb-16">
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-2">
+            <div class="flex flex-col lg:flex-row gap-2">
+              <div class="flex-1">
+                <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="text-xs font-semibold text-gray-900 mb-1">Where</div>
+                  <input type="text" placeholder="Search destinations" class="w-full text-sm text-gray-600 placeholder-gray-400 border-0 p-0 focus:ring-0 focus:outline-none bg-transparent">
+                </div>
+              </div>
+              <div class="hidden lg:block w-px bg-gray-200"></div>
+              <div class="flex-1">
+                <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="text-xs font-semibold text-gray-900 mb-1">Move in</div>
+                  <input type="text" placeholder="Add dates" class="w-full text-sm text-gray-600 placeholder-gray-400 border-0 p-0 focus:ring-0 focus:outline-none bg-transparent">
+                </div>
+              </div>
+              <div class="hidden lg:block w-px bg-gray-200"></div>
+              <div class="flex-1">
+                <div class="p-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="text-xs font-semibold text-gray-900 mb-1">Price range</div>
+                  <input type="text" placeholder="Set budget" class="w-full text-sm text-gray-600 placeholder-gray-400 border-0 p-0 focus:ring-0 focus:outline-none bg-transparent">
+                </div>
+              </div>
+              <div class="flex-shrink-0">
+                <button routerLink="/search" class="w-full lg:w-auto bg-gradient-to-r from-red-500 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                  <span>Search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <button routerLink="/search" class="px-8 py-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+            <div class="flex items-center justify-center space-x-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-9 9a1 1 0 001.414 1.414L2 12.414V17a1 1 0 001 1h3a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h3a1 1 0 001-1v-4.586l.293.293a1 1 0 001.414-1.414l-9-9z"/>
+              </svg>
+              <span>Browse rooms</span>
+            </div>
           </button>
-          <button
-            class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
-          >
-            post a space
+          <button routerLink="/add-listing" class="px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-50 transition-all transform hover:scale-105 shadow-lg border border-gray-200">
+            <div class="flex items-center justify-center space-x-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+              </svg>
+              <span>List your space</span>
+            </div>
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <app-header></app-header>
-
-  <!-- Other sections... -->
-  <!-- Search Section -->
-  <app-simplesearchbar (search)="onSearch($event)"></app-simplesearchbar>
+  <!-- Popular Destinations -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Popular destinations</h2>
+        <p class="text-lg text-gray-600">Discover the most sought-after areas in London</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl mb-3">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Shoreditch" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+          </div>
+          <h3 class="font-semibold text-gray-900">Shoreditch</h3>
+          <p class="text-sm text-gray-600">142 rooms</p>
+        </div>
+        
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl mb-3">
+            <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Camden" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+          </div>
+          <h3 class="font-semibold text-gray-900">Camden</h3>
+          <p class="text-sm text-gray-600">89 rooms</p>
+        </div>
+        
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl mb-3">
+            <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kensington" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+          </div>
+          <h3 class="font-semibold text-gray-900">Kensington</h3>
+          <p class="text-sm text-gray-600">67 rooms</p>
+        </div>
+        
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl mb-3">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hackney" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+          </div>
+          <h3 class="font-semibold text-gray-900">Hackney</h3>
+          <p class="text-sm text-gray-600">104 rooms</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Listing Section -->
-  <section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-        Featured Rooms in London
-      </h2>
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center mb-8">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Featured rooms</h2>
+          <p class="text-lg text-gray-600">Hand-picked by our team</p>
+        </div>
+        <button class="hidden md:flex items-center space-x-2 px-6 py-3 border border-gray-300 rounded-xl hover:bg-white transition-colors">
+          <span class="font-medium text-gray-700">View all</span>
+          <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Listing 1 -->
         <app-listing-card
           [listing]="{
@@ -113,17 +197,53 @@
         ></app-listing-card>
       </div>
 
-      <div class="text-center mt-8">
-        <button
-          class="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
-        >
+      <div class="text-center mt-8 md:hidden">
+        <button class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-white transition-colors">
           View All Listings
         </button>
       </div>
     </div>
   </section>
 
+  <!-- Trust and Safety -->
   <section class="py-16 bg-white">
-    <!-- ... existing value proposition section ... -->
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your safety is our priority</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">We verify listings and provide 24/7 support to ensure you have a safe and comfortable experience</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Verified listings</h3>
+          <p class="text-gray-600">All properties are verified by our team before going live</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 support</h3>
+          <p class="text-gray-600">Get help whenever you need it with our round-the-clock support</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Secure payments</h3>
+          <p class="text-gray-600">Your payments are protected with bank-level security</p>
+        </div>
+      </div>
+    </div>
   </section>
 </div>

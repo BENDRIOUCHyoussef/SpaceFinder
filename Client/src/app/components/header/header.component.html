@@ -1,70 +1,115 @@
-<nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
       <!-- Logo -->
-      <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo"> -->
-        <span class="cursor-pointer self-center text-2xl font-semibold whitespace-nowrap">SpaceFinder</span>
-      </a>
-  
-      <!-- Buttons (Login/Signup) -->
-      <div class="flex md:order-2 space-x-4 rtl:space-x-reverse">
-        <button type="button" 
-                routerLink="/login"
-                class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-          Login
-        </button>
-        <button type="button" 
-                routerLink="/signup"
-                class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 cursor-pointer hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-          Sign Up
+      <div class="flex-shrink-0">
+        <a routerLink="/" class="flex items-center">
+          <div class="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-9 9a1 1 0 001.414 1.414L2 12.414V17a1 1 0 001 1h3a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h3a1 1 0 001-1v-4.586l.293.293a1 1 0 001.414-1.414l-9-9z"/>
+            </svg>
+          </div>
+          <span class="text-xl font-bold text-red-500">spacefinder</span>
+        </a>
+      </div>
+
+      <!-- Search Bar (Hidden on mobile, shown on tablet+) -->
+      <div class="hidden md:flex flex-1 max-w-md mx-8">
+        <div class="w-full relative">
+          <div class="flex items-center border border-gray-300 rounded-full shadow-sm hover:shadow-md transition-shadow">
+            <button class="flex-1 px-6 py-3 text-left border-r border-gray-300 rounded-l-full hover:bg-gray-50">
+              <div class="text-xs font-semibold text-gray-900">Where</div>
+              <div class="text-sm text-gray-500">Search destinations</div>
+            </button>
+            <button class="flex-1 px-6 py-3 text-left border-r border-gray-300 hover:bg-gray-50">
+              <div class="text-xs font-semibold text-gray-900">Move in</div>
+              <div class="text-sm text-gray-500">Add dates</div>
+            </button>
+            <button class="flex-1 px-6 py-3 text-left rounded-r-full hover:bg-gray-50 relative">
+              <div class="text-xs font-semibold text-gray-900">Type</div>
+              <div class="text-sm text-gray-500">Room type</div>
+              <div class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-red-500 p-2 rounded-full">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side menu -->
+      <div class="flex items-center space-x-4">
+        <!-- Become a host link -->
+        <a routerLink="/add-listing" class="hidden lg:block text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2 rounded-full hover:bg-gray-100">
+          Rent your space
+        </a>
+
+        <!-- Language selector -->
+        <button class="hidden lg:block p-2 rounded-full hover:bg-gray-100">
+          <svg class="w-4 h-4 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"/>
+          </svg>
         </button>
 
-        
-        
-        <!-- Mobile menu button -->
-        <button (click)="toggleMenu()" 
-                type="button" 
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        <!-- User menu -->
+        <div class="relative">
+          <button (click)="toggleUserMenu()" class="flex items-center space-x-2 border border-gray-300 rounded-full py-2 px-3 hover:shadow-md transition-shadow">
+            <svg class="w-4 h-4 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <div class="w-7 h-7 bg-gray-500 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div *ngIf="isUserMenuOpen" class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+            <a routerLink="/login" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 font-medium">
+              Log in
+            </a>
+            <a routerLink="/signup" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">
+              Sign up
+            </a>
+            <hr class="my-2 border-gray-200">
+            <a routerLink="/add-listing" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">
+              Rent your space
+            </a>
+            <a routerLink="/my-listings" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">
+              My listings
+            </a>
+            <hr class="my-2 border-gray-200">
+            <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">
+              Help Center
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile search button -->
+        <button class="md:hidden p-2 rounded-full border border-gray-300">
+          <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </button>
       </div>
-  
-      <!-- Navigation Links -->
-      <div class="items-center justify-between w-full md:flex md:w-auto md:order-1" 
-           [class.hidden]="!isMenuOpen">
-        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-          <li>
-            <a routerLink="/" 
-               routerLinkActive="text-blue-700 bg-blue-50 md:bg-transparent" 
-               class="block py-2 px-3 rounded-sm md:p-0">
-              Home
-            </a>
-          </li>
-          <li>
-            <a routerLink="/my-listings" 
-               routerLinkActive="text-blue-700 bg-blue-50 md:bg-transparent" 
-               class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
-              My Lisitngs
-            </a>
-          </li>
-          <li>
-            <a routerLink="/add-listing" 
-               routerLinkActive="text-blue-700 bg-blue-50 md:bg-transparent" 
-               class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
-              Add Listing
-            </a>
-          </li>
-          <li>
-            <a routerLink="/contact" 
-               routerLinkActive="text-blue-700 bg-blue-50 md:bg-transparent" 
-               class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile search bar -->
+  <div class="md:hidden border-t border-gray-200 bg-white px-4 py-3">
+    <div class="flex items-center space-x-2">
+      <div class="flex-1 relative">
+        <input type="text" placeholder="Where are you going?" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm">
+        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+      <button class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-full">
+        Search
+      </button>
+    </div>
+  </div>
+</nav>
